@@ -1,14 +1,21 @@
-import KMMViewModelSwiftUI
-import Shared
+//
+//  ContentView.swift
+//  ios
+//
+//  Created by Isak Hansson on 2023-05-19.
+//
+
 import SwiftUI
 
 struct ContentView: View {
-    @StateViewModel var viewModel = AppViewModel()
-    let greet = Greeting().greet()
-
     var body: some View {
-        Text(viewModel.input)
-        TextField("Enter Input", text: $viewModel.input)
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundColor(.accentColor)
+            Text("Hello, world!")
+        }
+        .padding()
     }
 }
 

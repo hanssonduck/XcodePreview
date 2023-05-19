@@ -2,10 +2,8 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
     id("com.android.library")
-    id("com.google.devtools.ksp")
     id("com.rickclephas.kmp.nativecoroutines")
     kotlin("multiplatform")
-    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -36,29 +34,16 @@ kotlin {
 
         val commonMain by getting {
             dependencies {
-                api(libs.immutable)
-                api(libs.coroutines.core)
-                implementation(libs.kermit)
-                implementation(libs.koin.core)
-                implementation(libs.ktor.core)
-                implementation(libs.ktor.resources)
-                implementation(libs.ktor.content.negotiation)
-                implementation(libs.ktor.json)
                 api(libs.kmm.viewmodel)
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
-                implementation(libs.koin.test)
             }
         }
         val androidMain by getting {
             dependencies {
-                api(libs.coroutines.android)
-                api(libs.koin.core)
-                api(libs.koin.android)
-                implementation(libs.ktor.android)
             }
         }
         val androidUnitTest by getting
@@ -87,7 +72,7 @@ kotlin {
 }
 
 android {
-    namespace = "duck.hansson.odd.android"
+    namespace = "com.example.xcodepreview"
     compileSdk = 33
     defaultConfig {
         minSdk = 24
